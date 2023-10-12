@@ -1,0 +1,39 @@
+<!-- This page is used for the user to submit their own build, this can be accessed by clicking the submit a build button
+-->
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block page-title %}Register User{% endblock %}
+{% block page-content %}
+    <div id="body">
+        <h3>Register User</h3>
+        <form id="register-user" action="{% url 'users:register' %}" method="post">
+            {% csrf_token %}
+            <p>* = required</p>
+            <label for="register-username">Username</label>
+            <input id="register-username" name="username" type="text" required>
+
+            <label for="register-email">Email</label>
+            <input id="register-email" name="email" type="email" required>
+
+            <label for="register-password">Password</label>
+            <input id="register-password" name="password" type="password" required>
+            <br>
+            <label for="register-first-name">First name</label>
+            <input id="register-first-name" name="first-name" type="text" required>
+
+            <label for="register-last-name">Last name</label>
+            <input id="register-last-name" name="last-name" type="text" required>
+
+            <label for="register-age-range">Age range</label>
+            <select id="register-age-range" name="age-range" required>
+                <option value="15-20">15-20</option>
+                <option value="20-30">20-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="50+">50+</option>
+            </select>
+
+            <input type="submit" name="submit" value="Register">
+        </form>
+    </div>
+{% endblock %}

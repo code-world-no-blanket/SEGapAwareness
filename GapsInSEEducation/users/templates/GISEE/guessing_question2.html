@@ -1,0 +1,33 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="question-block" data-next-question-url="{% url "GapsInSoftwareEngineeringEducation:guessing_question3" %}">
+        <h2>Sort the following hard skills based on what you think industry thinks recent hires are most proficient in. Best skill at the top, worst at the bottom.</h2>
+        <ul id="sortable">
+            <li data-id="1" data-id="1" class="ui-state-default">Github</li>
+            <li data-id="2" data-id="2" class="ui-state-default">Agile Development Practices</li>
+            <li data-id="3" data-id="3" class="ui-state-default">Documentation</li>
+            <li data-id="4" data-id="4" class="ui-state-default">Project planning tools</li>
+            <li data-id="5" data-id="5" class="ui-state-default">Docker</li>
+            <li data-id="6" data-id="6" class="ui-state-default">Cloud development tools</li>
+            <li data-id="7" data-id="7" class="ui-state-default">Unit Testing</li>
+        </ul>
+        <button class="check-btn" id="check-2" type="submit" data-guessing-question-submission-url="{% url 'GapsInSoftwareEngineeringEducation:guessing_question_submission' %}">
+            Check Order
+        </button>
+{#        <a href="{% url "GapsInSoftwareEngineeringEducation:guessing_question3" %}">Next Question</a>#}
+    </div>
+{% endblock %}

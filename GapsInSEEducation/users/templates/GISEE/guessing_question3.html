@@ -1,0 +1,30 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="question-block" data-resources-url="{% url 'GapsInSoftwareEngineeringEducation:resources' %}">
+        <h2>Sort the following soft skills based on what you think industry thinks recent hires are most proficient in. Best skill at the top, worst at the bottom.</h2>
+        <ul id="sortable">
+            <li data-id="1" data-id="1" class="ui-state-default">Communication</li>
+            <li data-id="2" data-id="2" class="ui-state-default">Planning</li>
+            <li data-id="3" data-id="3" class="ui-state-default">Writing</li>
+            <li data-id="4" data-id="4" class="ui-state-default">Requirement Scoping</li>
+            <li data-id="5" data-id="5" class="ui-state-default">Teamwork</li>
+        </ul>
+        <button class="check-btn" id="check-3" data-guessing-question-submission-url="{% url 'GapsInSoftwareEngineeringEducation:guessing_question_submission' %}">
+            Check Order
+        </button>
+    </div>
+{% endblock %}

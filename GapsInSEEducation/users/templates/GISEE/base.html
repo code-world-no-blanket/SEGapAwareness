@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Gaps in Software Engineering Education | {% block page-title %}{% endblock %}</title>
+        <script src="{% static "js/jquery-3.6.0.min.js"%}"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+		<script src="{% static "js/scripts.js"%}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static "css/static.css" %}">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    </head>
+    <body>
+        <div id="header">
+            <div id="title-box">
+                <h1>Gaps in Software Engineering Education</h1>
+            </div>
+            {% if request.session.username %}
+
+			<form id="profile-area">
+				<div id="profile-status">
+{#					<p>Logged in as <a href="{% url "users:profile" request.session.username %}">{{ request.session.username }}</a></p>#}
+                    <p>Logged in as {{ request.session.username }}</p>
+					<input type="submit" name="Logout" value="Logout" formaction="{% url "users:logout" %}">
+				</div>
+			</form>
+
+            {% else %}
+
+            <form id="profile-area" action="{% url "users:login" %}" method="POST">
+				{% csrf_token %}
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" name="submit" value="Log in">
+{#                or <a href="{% url 'users:register' %}">Register</a>#}
+			</form>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% endif %}
+        </div>
+        {% block navigation %}{% endblock %}
+        <div id="content">
+            {% block page-content %}{% endblock %}
+        </div>
+
+        <div id="footer">
+
+        </div>
+    </body>
+</html>

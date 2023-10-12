@@ -1,0 +1,36 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="question-block" data-next-question-url="{% url "GapsInSoftwareEngineeringEducation:guessing_question2" %}">
+        <h2>Sort the following coding skills based on what you think industry thinks recent hires are most proficient in. Best skill at the top, worst at the bottom.</h2>
+        <ul id="sortable">
+            <li id="ranking_1" data-id="1" class="ui-state-default">C</li>
+            <li id="ranking_2" data-id="2" class="ui-state-default">Java</li>
+            <li id="ranking_3" data-id="3" class="ui-state-default">Javascript</li>
+            <li id="ranking_4" data-id="4" class="ui-state-default">Typescript</li>
+            <li id="ranking_5" data-id="5" class="ui-state-default">C++</li>
+            <li id="ranking_6" data-id="6" class="ui-state-default">Linux</li>
+            <li id="ranking_7" data-id="7" class="ui-state-default">SQL</li>
+            <li id="ranking_8" data-id="8" class="ui-state-default">HTML/CSS</li>
+            <li id="ranking_9" data-id="9" class="ui-state-default">C#</li>
+            <li id="ranking_10" data-id="10" class="ui-state-default">Python</li>
+        </ul>
+        <button class="check-btn" id="check-1" type="submit" data-guessing-question-submission-url="{% url 'GapsInSoftwareEngineeringEducation:guessing_question_submission' %}">
+            Check Order
+        </button>
+{#        <a href="{% url "GapsInSoftwareEngineeringEducation:guessing_question2" %}">Next Question</a>#}
+    </div>
+{% endblock %}

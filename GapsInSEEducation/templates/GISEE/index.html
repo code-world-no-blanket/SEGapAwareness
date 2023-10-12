@@ -1,0 +1,55 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="info">
+        <h2>
+            Project Information:
+        </h2>
+        <p>
+            Welcome to the homepage for the Gaps in Software Engineering Education research project!
+            This page provides some general information about this research project. Using the navigation buttons
+            found on this page you can move on to begin answering some questions.
+        </p>
+        <h2>
+            Purpose:
+        </h2>
+        <p>
+            The purpose of this project is to determine if we can address what the software engineering industry perceives as gaps in students' education
+            by informing them of these gaps and giving students proper resources to further explore these topics.
+        </p>
+        <h2>
+            Game:
+        </h2>
+        <p>
+            The game that each student involved in the study will play is a simple guessing game. First you will answer questions based on how you view your own proficiencies
+            in certain skills. Then you will be given several different types of questions that
+            require you to guess as to what software engineering workers think the gaps in software engineering education are.
+            After you have submitted your guesses you will be shown the correct answers based on what software engineers in industry reported.
+        </p>
+        <h2>
+            Relevant IRB Information:
+        </h2>
+        <p>
+            {Blinded for review}
+        </p>
+        <h2>
+            Principle Researchers / Contact Points:
+        </h2>
+        <p>
+            {Blinded for review}
+        </p>
+    </div>
+{% endblock %}

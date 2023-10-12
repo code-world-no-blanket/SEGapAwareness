@@ -1,0 +1,41 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="question-block">
+        <h2>Question 2: Assign a rating for each soft skill as it relates to how you view your level of proficiency in that skill. (0 - NA, 1 - Not proficient, 5 - Very proficient) </h2>
+        <form id="question2-form" action="{% url "GapsInSoftwareEngineeringEducation:question2_submission" %}" method="post">
+            <div class="slider-container">
+                {% csrf_token %}
+                <h4>Communication: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="c-slider" name="c-slider">
+                <h5>Value: <p id="c-value"></p></h5>
+                <h4>Planning: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="java-slider" name="java-slider">
+                <h5>Value: <p id="java-value"></p></h5>
+                <h4>Writing: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="js-slider" name="js-slider">
+                <h5>Value: <p id="js-value"></p></h5>
+                <h4>Requirement scoping: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="ts-slider" name="ts-slider">
+                <h5>Value: <p id="ts-value"></p></h5>
+                <h4>Teamwork: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="cpp-slider" name="cpp-slider">
+                <h5>Value: <p id="cpp-value"></p></h5>
+            </div>
+            <input type="submit" name="Post" value="Next Question" class="build-button">
+        </form>
+    </div>
+{% endblock %}

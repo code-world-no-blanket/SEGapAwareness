@@ -1,0 +1,47 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="question-block">
+        <h2>Question 3: Assign a rating for each hard skill as it relates to how you view your level of proficiency in that skill. (0 - NA, 1 - Not proficient, 5 - Very proficient) </h2>
+        <form id="question1-form" action="{% url "GapsInSoftwareEngineeringEducation:question3_submission" %}" method="post">
+            <div class="slider-container">
+                {% csrf_token %}
+                <h4>Github: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="c-slider"  name="c-slider">
+                <h5>Value: <p id="c-value"></p></h5>
+                <h4>Agile development Practices: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="java-slider" name="java-slider">
+                <h5>Value: <p id="java-value"></p></h5>
+                <h4>Documentation: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="js-slider" name="js-slider">
+                <h5>Value: <p id="js-value"></p></h5>
+                <h4>Project planning tools: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="ts-slider" name="ts-slider">
+                <h5>Value: <p id="ts-value"></p></h5>
+                <h4>Docker: </h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="cpp-slider" name="cpp-slider">
+                <h5>Value: <p id="cpp-value"></p></h5>
+                <h4>Cloud development tools:</h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="linux-slider" name="linux-slider">
+                <h5>Value: <p id="linux-value"></p></h5>
+                <h4>Unit testing:</h4>
+                <input type="range" min="0" max="5" value="0" class="slider" id="sql-slider" name="sql-slider">
+                <h5>Value: <p id="sql-value"></p></h5>
+                <input type="submit" name="Post" value="Next Question" class="build-button">
+            </div>
+        </form>
+    </div>
+{% endblock %}

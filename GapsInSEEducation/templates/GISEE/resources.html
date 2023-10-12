@@ -1,0 +1,200 @@
+{% extends "GISEE/base.html" %}
+{% load static %}
+{% block navigation %}
+    {% if request.session.username %}
+    <div id="header-nav-bar">
+        <a href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+        <a href="{% url "GapsInSoftwareEngineeringEducation:question1" %}">Game</a>
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:resources" %}">Resources</a>
+    </div>
+    {% else %}
+    <div id="header-nav-bar">
+        <a class="active" href="{% url "GapsInSoftwareEngineeringEducation:gaps_home" %}">Home</a>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block page-content %}
+    <div id="info">
+    <h1>Links will automatically open in new tab, do not click on links using right click.</h1>
+    <h2>Soft Skills:</h2>
+        <h3>
+            Communication:
+        </h3>
+        <li>
+            <a data-skill="Communication" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://santexgroup.com/blog/communication-skills-software-engineering/">Effective Communication Skills in Software Engineering</a>
+        </li>
+        <li>
+            <a data-skill="Communication" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.interviewkickstart.com/blog/why-effective-communication-is-must-have-skill-in-software-development">Why Effective Communication Is a Must-Have Skill in Software Development</a>
+        </li>
+        <li>
+            <a data-skill="Communication" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.sciencedirect.com/science/article/abs/pii/S095058490300209X">Communication and co-ordination practices in software engineering projects</a>
+        </li>
+        <h3>
+            Planning:
+        </h3>
+        <li>
+            <a data-skill="Planning" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://waydev.co/software-projects-planning/">9-Step Guide: How to Plan Effective Software Development Projects</a>
+        </li>
+        <li>
+            <a data-skill="Planning" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.softkraft.co/software-development-planning/">Software Development Planning - Perfect Project Plan in 10 Steps</a>
+        </li>
+        <h3>
+            Writing:
+        </h3>
+        <li>
+            <a data-skill="Writing" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://gathercontent.com/blog/7-best-technical-writing-examples-to-improve-your-skills#">7 best technical writing examples to improve your skills</a>
+        </li>
+        <li>
+            <a data-skill="Writing" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://developers.google.com/tech-writing">Google Technical Writing Courses</a>
+        </li>
+        <h3>
+            Requirement scoping:
+        </h3>
+        <li>
+            <a data-skill="Requirement scoping" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.freecodecamp.org/news/how-to-effectively-scope-your-software-projects-from-planning-to-execution-e96cbcac54b9/">How to effectively scope your software projects</a>
+        </li>
+        <li>
+            <a data-skill="Requirement scoping" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.tutorialspoint.com/software_engineering/software_requirements.htm">Tutorials Point Software Requirements</a>
+        </li>
+        <h3>
+            Teamwork:
+        </h3>
+        <li>
+            <a data-skill="Teamwork" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://gitential.com/teamwork-in-software-development-8-benefits-of-building-up-a-collaborative-team/">8 Benefits Of Teamwork In Software Development</a>
+        </li>
+        <li>
+            <a data-skill="Teamwork" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://medium.datadriveninvestor.com/ten-simple-techniques-to-improve-teamwork-between-software-developers-73cfb82cc329">10 Techniques To Improve Teamwork Among Software Developers</a>
+        </li>
+    <h2>Hard skills:</h2>
+        <h3>
+            Github:
+        </h3>
+        <li>
+            <a data-skill="Github" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://blog.hubspot.com/website/what-is-github-used-for">What Is GitHub? (And What Is It Used For?)</a>
+        </li>
+        <li>
+            <a data-skill="Github" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://github.com/git-guides">Github git guides</a>
+        </li>
+        <h3>
+            Agile development practices:
+        </h3>
+        <li>
+            <a data-skill="Agile" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.techtarget.com/searchsoftwarequality/definition/agile-software-development">Agile Software Development</a>
+        </li>
+        <li>
+            <a data-skill="Agile" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://en.wikipedia.org/wiki/Agile_software_development">Agile Software Development History</a>
+        </li>
+        <h3>
+            Documentation:
+        </h3>
+        <li>
+            <a data-skill="Documentation" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://document360.com/blog/software-documentation/">What is Software Documentation? Its types and Best practices</a>
+        </li>
+        <li>
+            <a data-skill="Documentation" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/overview-software-documentation/">Overview Software Documentation</a>
+        </li>
+        <h3>
+            Project planning tools:
+        </h3>
+        <li>
+            <a data-skill="Project Planning" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://thedigitalprojectmanager.com/tools/project-planning-tools/">10 Best Project Planning Tools & Software List [2022]</a>
+        </li>
+        <h3>
+            Docker:
+        </h3>
+        <li>
+            <a data-skill="Docker" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://docs.docker.com/get-started/">Orientation and setup</a>
+        </li>
+        <li>
+            <a data-skill="Docker" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://docker-curriculum.com/">Docker for beginners</a>
+        </li>
+        <h3>
+            Cloud Development Tools:
+        </h3>
+        <li>
+            <a data-skill="Cloud Development Tools" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://developers.redhat.com/topics/developer-tools">Developer Tools for Cloud Development</a>
+        </li>
+        <li>
+            <a data-skill="Cloud Development Tools" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://aws.amazon.com/getting-started/">AWS</a>
+        </li>
+        <li>
+            <a data-skill="Cloud Development Tools" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://cloud.google.com/training/application-development">Google Cloud application development</a>
+        </li>
+        <li>
+            <a data-skill="Cloud Development Tools" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://azure.microsoft.com/en-us/get-started/">Get started with Azure</a>
+        </li>
+        <li>
+            <a data-skill="Cloud Development Tools" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.tutorialspoint.com/microsoft_azure/index.htm">Microsoft Azure Tutorial</a>
+        </li>
+        <h3>
+            Unit testing:
+        </h3>
+        <li>
+            <a data-skill="Unit Testing" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/unit-testing-software-testing/">Unit Testing | Software Testing</a>
+        </li>
+        <li>
+            <a data-skill="Unit Testing" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://medium.com/vx-company/the-5-unit-testing-guidelines-f21d39c33e0b">The 5 unit testing guidelines</a>
+        </li>
+    <h2>Coding language skills:</h2>
+        <h3>
+            C:
+        </h3>
+        <li>
+            <a data-skill="C" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/c-programming-language/">C Programming Language</a>
+        </li>
+        <h3>
+            Java:
+        </h3>
+        <li>
+            <a data-skill="Java" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/java/">Java Programming Language</a>
+        </li>
+        <h3>
+            Javascript:
+        </h3>
+        <li>
+            <a data-skill="Javascript" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/javascript/">Javascript</a>
+        </li>
+        <h3>
+            Typescript:
+        </h3>
+        <li>
+            <a data-skill="Typescript" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/introduction-to-typescript/">Typescript</a>
+        </li>
+        <h3>
+            C++:
+        </h3>
+        <li>
+            <a data-skill="C++" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/c-plus-plus/">C++ Programming Language</a>
+        </li>
+        <h3>
+            Linux:
+        </h3>
+        <li>
+            <a data-skill="Linux" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/introduction-to-linux-operating-system/">Introduction to Linux Operating System</a>
+        </li>
+        <h3>
+            SQL:
+        </h3>
+        <li>
+            <a data-skill="SQL" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/sql-tutorial/">SQL Tutorial</a>
+        </li>
+        <h3>
+            HTML/CSS:
+        </h3>
+        <li>
+            <a data-skill="HTML" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/web-technology/html-css/">HTML & CSS</a>
+        </li>
+        <h3>
+            C#:
+        </h3>
+        <li>
+            <a data-skill="C#" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/csharp-programming-language/">C# Programming Language</a>
+        </li>
+        <h3>
+            Python:
+        </h3>
+        <li>
+            <a data-skill="Python" data-skill-practice-url="{% url 'GapsInSoftwareEngineeringEducation:skill_practice' %}" data-user-username="{{ request.session.username }}" target="_blank" href="https://www.geeksforgeeks.org/python-programming-language/">Python Programming Language</a>
+        </li>
+    </div>
+{% endblock %}
